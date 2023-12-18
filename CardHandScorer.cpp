@@ -95,12 +95,6 @@ bool CardHandScorer::isRoyalFlush(CardHand h)
             return false;
         }
     }
-//
-//     * bool true if ACE -> bool true if next card is 10 -> if card afterward is not in order -> false
-//     if ACE -> go to next card, if card is 10, if any card is not in order then false
-//
-//     take enum of card rank -> compare
-//
 
     bool hasAceRank = (playerHand[0].getRank() == ACE);
     bool hasTenRank = (playerHand[1].getRank() == TEN);
@@ -125,26 +119,12 @@ bool CardHandScorer::isStraightFlush(CardHand h)
         }
     }
 
-    ////if rank are in increasing order
-//    for(int i = 0; i < 4; i++)
-//    {
-//        if (playerHand[i].getRank() >= playerHand[i + 1].getRank()) {
-//            return false;
-//        }
-//    }
     for(int i = 0; i < 4; i++)
     {
         if ((playerHand[i].getRank() + 1) != playerHand[i+1].getRank() ) {
             return false;
         }
     }
-
-//    for(int i = 0; i < 4; i++)
-//    {
-//        if (playerHand[i].getRank() != playerHand[i+1].getRank()+1) {
-//            return false;
-//        }
-//    }
 
 
     return true;
@@ -167,25 +147,6 @@ bool CardHandScorer::isFourOfAKind(CardHand h)
         return true;
     }
     return false;
-
-
-
-//    const std::vector<Card> playerHand = h.getPlayerCard();
-//
-//    const Ranks firstCardRank = playerHand[0].getRank();
-//    int counter = 0;
-//    for(int i = 0; i < 5; i++)
-//    {
-//        if (playerHand[j].getRank() == playerHand[i].getRank())
-//        {
-//            counter++;
-//        }
-//    }
-//    if (counter != 4)
-//    {
-//        return false;
-//    }
-//    return true;
 }
 
 
@@ -202,30 +163,6 @@ bool CardHandScorer::isFullHouse(CardHand h)
                       playerHand[3].getRank() == playerHand[4].getRank();
 
     return (firstPair || secondPair);
-
-
-//    const Ranks firstCardRank = playerHand[0].getRank();
-//    int counter = 0;
-//    for(int i = 0; i < 5; i++)
-//    {
-//        if (firstCardRank != playerHand[i].getRank())
-//        {
-//            return false;
-//        } else {
-//            counter++;
-//        }
-//    }
-//    counter++;
-//    for (int i = 0; i < 5; i++)
-//    {
-//        if (playerHand[counter].getRank() != playerHand[counter + i].getRank())
-//        {
-//            return false;
-//        } else {
-//            counter++;
-//        }
-//    }
-//    return true;
 
 }
 
@@ -248,14 +185,6 @@ bool CardHandScorer::isFlush(CardHand h)
 bool CardHandScorer::isStraight(CardHand h)
 {
     const std::vector<Card> playerHand = h.getPlayerCard();
-    ////if rank are in increasing order
-//    for(int i = 0; i < 4; i++)
-//    {
-//        if (playerHand[i].getRank() >= playerHand[i + 1].getRank()) {
-//            return false;
-//        }
-//    }
-//    return true;
     for(int i = 0; i < 4; i++)
     {
         if ((playerHand[i].getRank() + 1) != playerHand[i+1].getRank()) {
@@ -283,22 +212,6 @@ bool CardHandScorer::isThreeOfAKind(CardHand h)
         return false;
     }
     return true;
-//    const std::vector<Card> playerHand = h.getPlayerCard();
-//
-//    const Ranks firstCardRank = playerHand[0].getRank();
-//    int counter = 0;
-//    for(int i = 0; i < 5; i++)
-//    {
-//        if (firstCardRank == playerHand[i].getRank())
-//        {
-//            counter++;
-//        }
-//    }
-//    if (counter != 3)
-//    {
-//        return false;
-//    }
-//    return true;
 }
 
 
@@ -318,31 +231,12 @@ bool CardHandScorer::isTwoPair(CardHand h)
 
     return (possibleFirstPair || possibleSecondPair || possibleThirdPair);
 
-//    for(int i = 0; i < 5; i++)
-//    {
-//        for (int j = 0; j < 5; j++)
-//        {
-//            if (playerHand[i].getRank() == playerHand[j].getRank())
-//            {
-//                counter++;
-//            }
-//        }
-//    }
-//    return false;
 }
 
 
 bool CardHandScorer::isOnePair(CardHand h){
     const std::vector<Card> playerHand = h.getPlayerCard();
 
-
-//    bool possibleFirstPair = playerHand[0].getRank() == playerHand[1].getRank() ||
-//                             playerHand[1].getRank() == playerHand[2].getRank() ||
-//                             playerHand[2].getRank() == playerHand[3].getRank() ||
-//                              playerHand[3].getRank() == playerHand[4].getRank();
-//
-//
-//    return (possibleFirstPair);
 
     for(int i = 0; i < 4; i++)
     {
